@@ -50,3 +50,24 @@ def postordertraversal(self, root:TreeNode):
 # 迭代方法实现后序遍历，由于是左右中，逆序就是中右左，所以只需要在线序的基础上把左子树先压入栈即可，最后result再逆序即可。
 ```
 
+```python3
+def levelordertraversal(self, root:TreeNode):
+	if not root:
+		return
+	
+	levels = []
+	
+	def traverse(node, level):
+		if not node:
+			return
+		if len(levels) == level:
+			levels.append([])
+		levels[level].append(node.val)
+		traverse(node.left, level+1)
+		traverse(node.right, level+1)
+		
+	traverse(root, 0)
+	return levels
+# 递归方法实现层序遍历，当len(levels)等于当前的level时就需要为该level新开一层。
+```
+

@@ -55,4 +55,24 @@ class Solution:
             if node.right:
                 stack.append(node.right)
         return result[::-1]
+    
+    def levelOrder(self, root):
+        if not root:
+            return 
+        
+        levels = []
+        
+        def traverse(node, level):
+            if not node:
+                return
+            
+            if len(levels) == level:
+                levels.append([])
+                
+            levels[level].append(node.val)
+            traverse(node.left, level+1)
+            traverse(node.right, level+1)
+            
+        traverse(root, 0)
+        return levels
                 
