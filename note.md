@@ -71,3 +71,14 @@ def levelordertraversal(self, root:TreeNode):
 # 递归方法实现层序遍历，当len(levels)等于当前的level时就需要为该level新开一层。
 ```
 
+```python3
+def invertTree(self, root:TreeNode):
+    if not root:
+        return None
+    self.left, self.right = self.right, self.left
+    invertTree(self.left)
+    invertTree(self.right)
+    return root
+# 递归的方法，先序中序和后序类似。
+```
+
