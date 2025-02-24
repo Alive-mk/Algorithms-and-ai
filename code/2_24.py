@@ -21,4 +21,16 @@ class Solution:
         
         return self.getDepth(root)
     
+class Solution:
+    def countNodes(self, root):
+        return self.getNondesNum(root)
     
+    def getNondesNum(self, cur):
+        if cur is None:
+            return 0
+        
+        leftNum = self.getNondesNum(cur.left)
+        rightNum = self.getNondesNum(cur.right)
+        treeNum = leftNum + rightNum + 1
+        
+        return treeNum
