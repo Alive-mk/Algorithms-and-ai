@@ -34,6 +34,8 @@ class Solution:
         
         return 1 + max(self.maxdepth(root.left), self.maxdepth(root.right))
 
+import collections
+
 class Solution:
     def maxDepth(self, root):
         if not root:
@@ -49,6 +51,6 @@ class Solution:
                 if node.left:
                     queue.append(node.left)
                 if node.right:
-                    queue.append(node.left)
+                    queue.append(node.right)
                     
         return depth

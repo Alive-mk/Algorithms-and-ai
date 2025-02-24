@@ -82,3 +82,25 @@ def invertTree(self, root:TreeNode):
 # 递归的方法，先序中序和后序类似。
 ```
 
+```python3
+import collections
+class Solution:
+	def maxDepth(self, root):
+		if not root:
+			return 0
+			
+		depth = 0
+		queue = collections.deque([root])
+		
+		while queue:
+			depth += 1
+			for _ in len(queue):
+				node = queue.popleft()
+				if node.left:
+					queue.qppend(node.left)
+				if node.right:
+					queue.qppend(node.right)
+			
+		return depth
+```
+
